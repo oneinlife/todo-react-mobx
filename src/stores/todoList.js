@@ -1,10 +1,13 @@
 import {observable, computed} from 'mobx';
 
 class TodoList {
-  @observable todos;
+  //@observable todos;
 
   constructor(initialTodos) {
-    this.todos = []
+    this.todos = [
+        {title: 'first'},
+        {title: 'second'}
+    ]
   }
 }
 
