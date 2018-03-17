@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
-import {inject} from 'mobx-react';
-import {toJS} from 'mobx';
+import {inject, observer} from 'mobx-react';
 
-@inject('todoList')
+@inject('todoStore')
+@observer
 class TodoList extends Component {
   render() {
-    const {todoList} = this.props;
-    const html = todoList.todos.map(todo => {
+    const {todoStore} = this.props;
+    const list = todoStore.filtresTodos.map((todo, index) => {
         return (
-            <div>{todo.title}</div>
+            <div key={index}>{todo.title}</div>
         );
     });
 
     return (
       <div className="Contener">
-        {html}
+        {list}
       </div>
     );
   }

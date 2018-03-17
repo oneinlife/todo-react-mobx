@@ -1,5 +1,7 @@
-import todoList from './todoList';
+import todoStore from './todoStore';
+import filterStore from './filterStore';
 
 export default {
-    todoList
+    todoStore,
+    filterStore
 };

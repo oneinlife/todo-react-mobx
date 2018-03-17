@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import {inject} from 'mobx-react';
 
 import TodoList from '../TodoList/TodoList';
+import Filter from '../Filter/Filter';
+
 import './App.css';
 
-@inject('todoList')
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <Filter/>
         <TodoList/>
       </div>
     );
