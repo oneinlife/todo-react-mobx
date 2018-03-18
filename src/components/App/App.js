@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import TodoList from '../TodoList/TodoList';
+import TaskList from '../TaskList/TaskList';
 import Filter from '../Filter/Filter';
 
 import './App.css';
@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <Filter/>
-        <TodoList/>
+        <TaskList/>
       </div>
     );
   }

@@ -1,7 +1,7 @@
-import todoStore from './todoStore';
+import taskStore from './taskStore';
 import filterStore from './filterStore';
 
 export default {
-    todoStore,
+    taskStore,
     filterStore
 };
