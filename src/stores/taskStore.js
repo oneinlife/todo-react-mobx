@@ -4,6 +4,7 @@ import filterStore from './filterStore';
 
 class tasktore {
   @observable tasks;
+  id;
 
   constructor(initialtask) {
     this.tasks = {
@@ -18,12 +19,19 @@ class tasktore {
       8:  {id: 8, title: 'ninth'},
       9:  {id: 9, title: 'tenth'},
     }
+    this.id = 9;
   }
 
   @computed get filtresTasks() {
     const {search} = filterStore;
 
     return Object.values(this.tasks).filter(({title}) => title.toLowerCase().includes(search));
+  }
+
+  create = () => {
+    const nextId = ++this.id;
+
+    this.tasks = {...this.tasks, [nextId]: {id: nextId, edit: true, title: ''}};
   }
 
   update = (index, newProps) => {

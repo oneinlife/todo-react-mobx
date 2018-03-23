@@ -4,52 +4,30 @@ import {inject, observer} from 'mobx-react';
 @inject('taskStore')
 @observer
 class TaskRow extends Component {
-  constructor (props) {
-    super(props);
-
-    this.state = {
-      edit: false
-    };
-  }
-
-  closeEdit = () => {
-    console.log('blur');
-    this.setState({
-      edit: false
-    });
-  }
-
-  openEdit = () => {
-    this.setState({
-      edit: true
-    });
-  }
-
-  titleUpdate = ({target: {value}}) => {
+  update = props => {
     const {taskStore, task: {id}} = this.props;
 
     taskStore.update(
       id,
-      {title: value}      
+      props     
     );
   }
 
   render() {
-    const {task: {title}} = this.props;
-    const {edit} = this.state;
+    const {task: {title, edit}} = this.props;
     const output = edit ? 
       <input
        autoFocus
        defaultValue={title}
-       onBlur={this.closeEdit}
-       onChange={this.titleUpdate}/> :
+       onBlur={() => {this.update({edit: false})}}
+       onChange={({target: {value}}) => {this.update({title: value})}}/> :
       <div
-       onClick={this.openEdit}>
+       onClick={() => {this.update({edit: true})}}>
         {title}
       </div>;
 
     return (
-      <div className="Contener">
+      <div className={'Contener'}>
         {output}
       </div>
     );

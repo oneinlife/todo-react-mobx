@@ -6,6 +6,12 @@ import TaskRow from './TaskRow';
 @inject('taskStore')
 @observer
 class taskList extends Component {
+  createTask = () => {
+    const {taskStore} = this.props;
+
+    taskStore.create();
+  }
+
   render() {
     const {taskStore} = this.props;
     const list = taskStore.filtresTasks.map((task, index) => {
@@ -18,6 +24,9 @@ class taskList extends Component {
 
     return (
       <div className="Contener">
+        <div onClick={this.createTask}>
+          Добавить
+        </div>
         {list}
       </div>
     );
