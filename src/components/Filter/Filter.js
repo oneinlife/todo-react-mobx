@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {inject} from 'mobx-react';
 
+import './Filter.css';
+
 @inject('filterStore')
 class Filter extends Component {
   search = ({target: {value}}) => {
@@ -11,8 +13,8 @@ class Filter extends Component {
 
   render() {
     return (
-      <div className="Contener">
-        <input onChange={this.search}></input>
+      <div>
+        Поиск: <input className='Input' onChange={this.search}></input>
       </div>);
   }
 }

@@ -1,0 +1,18 @@
+.ContenerHeader {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.AddTask {
+    margin-right: 50px;
+    width: 120px;
+    height: 30px;
+    background-color: #2574d6;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 3px;
+}

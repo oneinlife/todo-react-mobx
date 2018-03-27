@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import {inject, observer} from 'mobx-react';
 
 import TaskRow from './TaskRow';
+import Filter from '../Filter/Filter';
+import './TaskList.css';
 
 @inject('taskStore')
 @observer
-class taskList extends Component {
+class TaskList extends Component {
   createTask = () => {
     const {taskStore} = this.props;
 
@@ -23,9 +25,13 @@ class taskList extends Component {
     });
 
     return (
-      <div className="Contener">
-        <div onClick={this.createTask}>
-          Добавить
+      <div className='Contener'>
+        <div className='ContenerHeader'>
+          <div className='AddTask'
+           onClick={this.createTask}>
+            Добавить
+          </div>
+          <Filter/>
         </div>
         {list}
       </div>
@@ -33,4 +39,4 @@ class taskList extends Component {
   }
 }
 
-export default taskList;
+export default TaskList;

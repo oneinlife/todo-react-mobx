@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {inject, observer} from 'mobx-react';
 
+import './TaskRow.css';
+
 @inject('taskStore')
 @observer
 class TaskRow extends Component {
@@ -20,6 +22,7 @@ class TaskRow extends Component {
        autoFocus
        defaultValue={title}
        onBlur={() => {this.update({edit: false})}}
+       onKeyDown={(e) => {e.keyCode === 13 && this.update({edit: false})}}
        onChange={({target: {value}}) => {this.update({title: value})}}/> :
       <div
        onClick={() => {this.update({edit: true})}}>
@@ -27,7 +30,7 @@ class TaskRow extends Component {
       </div>;
 
     return (
-      <div className={'Contener'}>
+      <div className={'TaskRow'}>
         {output}
       </div>
     );
